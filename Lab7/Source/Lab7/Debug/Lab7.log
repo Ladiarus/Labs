@@ -1,0 +1,4 @@
+﻿  Lab7.cpp
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Lab7\Lab7\Lab7.cpp(73,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Lab7\Lab7\Lab7.cpp(88,27): warning C4018: >=: несоответствие типов со знаком и без знака
+  Lab7.vcxproj -> C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Lab7\Debug\Lab7.exe

@@ -1,0 +1,5 @@
+﻿  Lab4.cpp
+E:\Лабы\Lab4\Source\Lab4\Lab4.cpp(65,24): warning C4101: sum: неиспользованная локальная переменная
+E:\Лабы\Lab4\Source\Lab4\Lab4.cpp(65,21): warning C4101: y: неиспользованная локальная переменная
+  LINK : не найден или не выполнена сборка E:\Лабы\Lab4\Source\Debug\Lab4.exe при последней инкрементной компоновке; выполняется полная компоновка
+  Lab4.vcxproj -> E:\Лабы\Lab4\Source\Debug\Lab4.exe

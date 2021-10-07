@@ -1,0 +1,5 @@
+﻿  Lab6.cpp
+E:\Лабы\Lab6\Source\Lab6\Lab6.cpp(128,11): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+E:\Лабы\Lab6\Source\Lab6\Lab6.cpp(163,19): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+E:\Лабы\Lab6\Source\Lab6\Lab6.cpp(172,69): warning C4244: =: преобразование "__int64" в "double", возможна потеря данных
+  Lab6.vcxproj -> E:\Лабы\Lab6\Source\Debug\Lab6.exe
