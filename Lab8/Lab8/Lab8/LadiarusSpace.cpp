@@ -32,6 +32,23 @@ void input(int& x, int a, int b)
             return;
     }
 }
+
+void input(double& x, double a, double b)
+{
+    while (true)
+    {
+        input(x);
+        if (x < a || x > b)
+        {
+            cout <<
+                "Неверный ввод\n"
+                "Введите число на промежутке от " << a << " до " << b << endl;
+        }
+        else
+            return;
+    }
+}
+
 void input(bool& b)
 {
     char c;
@@ -53,21 +70,20 @@ void input(bool& b)
 }
 void input(string &s, string exclude)
 {
-    bool isOk;
-    while (true)
+	while (true)
     {
-        isOk = true;
+        bool is_ok = true;
         cin >> s;
         for(auto c : exclude)
         {
             if (s.find(c) != -1)
-                isOk = false;
+                is_ok = false;
         }
-        if (cin.fail() || (cin.peek() != '\n') || !isOk)
+        if (cin.fail() || (cin.peek() != '\n') || !is_ok)
         {
             cin.clear();
             cin.ignore(10000, '\n');
-            cout << "Неверный ввод" << endl;
+            cout << "Неверный ввод, нельзя использовать символы: \""<< exclude << "\"" << endl;
         }
         else
         {
@@ -79,28 +95,31 @@ vector<string> splitStr(string s, char delim)
 {
     string out;
     vector<string> v;
-    int minLengthInd = -1;
-    bool isOutNull = true;
+    int min_length_ind = -1;
+    bool is_out_null = true;
 
     s += delim;
-    for (int i = 0; i < s.length(); i++)
+    for (char i : s)
     {
-        if (s[i] != delim)
+        if (i != delim)
         {
-            if (isOutNull)
+            if (is_out_null)
             {
-                isOutNull = false;
+                is_out_null = false;
             }
 
-            out += s[i];
+            out += i;
 
         }
-        else if (!isOutNull)
+        else if (!is_out_null)
         {
             v.push_back(out);
             out = "";
-            isOutNull = true;
+            is_out_null = true;
         }
     }
     return v;
+}
+int clamp(int n, int lower, int upper) {
+    return max(lower, min(n, upper));
 }

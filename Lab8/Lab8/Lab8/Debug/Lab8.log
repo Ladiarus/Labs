@@ -1,3 +1,5 @@
-﻿  LadiarusSpace.cpp
-C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Lab8\Lab8\LadiarusSpace.cpp(86,23): warning C4018: <: несоответствие типов со знаком и без знака
-  Lab8.vcxproj -> C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Lab8\Debug\Lab8.exe
+﻿  Lab8.cpp
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Lab8\Lab8.cpp(78,31): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Lab8\Lab8.cpp(164,16): warning C4101: x: неиспользованная локальная переменная
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Lab8\Lab8.cpp(213,23): warning C4018: <: несоответствие типов со знаком и без знака
+  Lab8.vcxproj -> C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Debug\Lab8.exe
