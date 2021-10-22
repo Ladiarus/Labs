@@ -1,4 +1,5 @@
 #include "LadiarusSpace.h"
+
 template <class T>
 void input(T& a)
 {
@@ -17,6 +18,7 @@ void input(T& a)
         }
     }
 }
+
 void input(int& x, int a, int b)
 {
     while (true)
@@ -122,4 +124,50 @@ vector<string> splitStr(string s, char delim)
 }
 int clamp(int n, int lower, int upper) {
     return max(lower, min(n, upper));
+}
+
+string centerString(const string& s, int width, char fill_with)
+{
+    string ret_str;
+    int x = (width - s.length())/2;
+    for (int i = 0; i < x; i++)
+    {
+        ret_str += fill_with;
+    }
+    ret_str += s;
+    for (int i = ret_str.length() - 1; i < width; i++)
+    {
+        ret_str += fill_with;
+    }
+    return ret_str;
+}
+
+template <typename T>
+void myQSort(vector<T>& v, int beg, int end, bool(*comp)(T*, T*))
+{
+    int curr_main_idx = end;
+    if (end - beg == 2)
+    {
+        if (comp(&(v[beg]), &(v[end])))
+        {
+            swap(v[beg], v[end]);
+        }
+        return;
+    }
+    int i = beg;
+    while (i < end)
+    {
+        if (comp(&v[i], &v[end]))
+        {
+            swap(v[i], v[curr_main_idx - 1]);
+            swap(v[curr_main_idx - 1], v[curr_main_idx]);
+            curr_main_idx--;
+        }
+        else
+        {
+            i++;
+        }
+    }
+    myQSort(v, beg, curr_main_idx - 1, comp);
+    myQSort(v, curr_main_idx + 1, end, comp);
 }
