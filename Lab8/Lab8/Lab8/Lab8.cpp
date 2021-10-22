@@ -222,7 +222,7 @@ void createFileSelect()
     do {
         input(s, "/<>?|*:\"\\");
         if (s.substr(s.length() <= 4 || s.length() - 4, 4) != ".txt")
-            cout << "Неверный ввод\n";
+            cout << "Неверный ввод\n\a";
     } while (s.length() <= 4 || s.substr(s.length() - 4, 4) != ".txt");
     if (isFileExists(s))
     {
@@ -257,7 +257,8 @@ void chooseFileSelect()
     cout << "Введите название файла, оканчивающееся на .txt\n";
     do {
         input(s, "/<>?|*:\"\\");
-            
+        if (s.length() <= 4 || s.substr(s.length() - 4, 4) != ".txt")
+            cout << "Неверный ввод\a\n";
     } while (s.length() <= 4 || s.substr(s.length() - 4, 4) != ".txt");
     if (!isFileExists(s))
     {
@@ -714,7 +715,8 @@ void addString(string path, const StudentData* sd)
     fin.close();
     fout.close();
     fout.open(path, ios::app);
-    fout << endl;
+    if(amount_of_lines!=0)
+		fout << endl;
     fout << sd->name << ' ';
     fout << sd->year << ' ';
     fout << sd->number << ' ';

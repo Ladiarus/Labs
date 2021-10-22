@@ -1,12 +1,12 @@
 ﻿  Lab8.cpp
 C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Lab8\Lab8.cpp(188,31): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Lab8\Lab8.cpp(465,22): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Lab8\Lab8.cpp(476,15): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Lab8\Lab8.cpp(489,10): warning C4101: c: неиспользованная локальная переменная
-C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Lab8\Lab8.cpp(500,13): warning C4018: >=: несоответствие типов со знаком и без знака
-C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Lab8\Lab8.cpp(503,10): warning C4101: c: неиспользованная локальная переменная
-C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Lab8\Lab8.cpp(591,30): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Lab8\Lab8.cpp(617,53): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Lab8\Lab8.cpp(617,44): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Lab8\Lab8.cpp(669,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Lab8\Lab8.cpp(466,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Lab8\Lab8.cpp(477,15): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Lab8\Lab8.cpp(490,10): warning C4101: c: неиспользованная локальная переменная
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Lab8\Lab8.cpp(501,13): warning C4018: >=: несоответствие типов со знаком и без знака
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Lab8\Lab8.cpp(504,10): warning C4101: c: неиспользованная локальная переменная
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Lab8\Lab8.cpp(592,30): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Lab8\Lab8.cpp(618,53): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Lab8\Lab8.cpp(618,44): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Lab8\Lab8.cpp(670,23): warning C4018: <: несоответствие типов со знаком и без знака
   Lab8.vcxproj -> C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Lab8\Debug\Lab8.exe
