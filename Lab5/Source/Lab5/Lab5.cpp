@@ -76,7 +76,7 @@ int main(int argc, char* argv[])
 {
     setlocale(LC_ALL, "Russian");
 
-    int arr[10000];
+    int *arr= new int[10000];
     int index_max, sum = 0;
     bool choice;
 
@@ -121,5 +121,6 @@ int main(int argc, char* argv[])
         }
     }
     cout << "Сумма: " << sum << endl;
+    delete[] arr;
     system("pause");
 }
