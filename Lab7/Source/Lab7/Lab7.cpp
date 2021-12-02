@@ -60,17 +60,20 @@ void input(bool& b)
         }
     }
 }
-vector<pair<string, int>> splitFindMinLenStr(string s, char delim, int& minLength)
+int myLength(char* s);
+vector<pair<char*, int>> splitFindMinLenStr(char* s, char delim, int& minLength)
 {
-    string out, minLenStr;
-    vector<pair<string, int>> v;
-    int minLengthInd = -1;
-    minLength = s.length();
-    int currStrInd;
+    vector<pair<char*, int>> v;
+    int currStrInd=0, sLen = myLength(s);
+    s[sLen] = ' ';
+    s[sLen + 1] = '\0';
+    sLen++;
+    int minLengthInd = -1, outLen=0;
+    minLength = myLength(s);
     bool isOutNull = true;
 
-    s += ' ';
-    for (int i = 0; i < s.length(); i++)
+
+    for (int i = 0; i < sLen; i++)
     {
         if (s[i] != delim)
         {
@@ -79,43 +82,68 @@ vector<pair<string, int>> splitFindMinLenStr(string s, char delim, int& minLengt
                 currStrInd = i;
                 isOutNull = false;
             }
-
-            out += s[i];
+            outLen++;
 
         }
         else if (!isOutNull)
         {
-            if (minLength >= out.length())
+            if (minLength >= outLen)
             {
-                minLength = out.length();
+                minLength = outLen;
             }
+            char* out = new char[outLen + 5];
+            for(int j = 0; j < outLen; j++)
+            {
+                out[j] = s[j + currStrInd];
+            }
+            out[outLen] = '\0';
             v.push_back(make_pair(out, currStrInd));
-            out = "";
+            outLen = 0;
             isOutNull = true;
         }
     }
     return v;
 }
-
+int myLength(char* s)
+{
+    int i = 0;
+	while(s[i] != '\0')
+	{
+        i++;
+	}
+    return i;
+}
+int myFind(char* s, char c)
+{
+    int i = 0;
+	while(s[i]!='\0')
+	{
+        if (s[i] == c)
+            return i;
+        i++;
+	}
+    return -1;
+}
 int main(int argc, char* argv[])
 {
     setlocale(LC_ALL, "Russian");
-    string s;
+    char s[255];
     int prewInd = 0, minLength;
+
     cout << "Введите строку\n";
     while (true)
     {
-        getline(cin, s);
-        if (s.find('\t') == -1)
+        cin.getline(s, 255);
+        if (myFind(s, '\t') == -1)
             break;
         cout << "Неверный ввод\n";
     }
 
-    vector<pair<string, int>> v = splitFindMinLenStr(s, ' ', minLength);
+    vector<pair<char*, int>> v = splitFindMinLenStr(s, ' ', minLength);
     bool isFirstStr = true;
     for (auto p : v)
     {
-        if (p.first.length() == minLength)
+        if (myLength(p.first) == minLength)
         {
             if (isFirstStr)
             {
@@ -133,7 +161,7 @@ int main(int argc, char* argv[])
 
     for (auto p : v)
     {
-        if (p.first.length() == minLength)
+        if (myLength(p.first) == minLength)
         {
             cout << "\nСтрока с минимальной длиной: " << p.first << endl;
             cout << "Порядковый номер этой строки: " << p.second + 1 << endl;
