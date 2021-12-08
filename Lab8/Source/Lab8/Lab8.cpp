@@ -221,7 +221,7 @@ void createFileSelect()
     cout << "Введите название файла, оканчивающееся на .txt\n";
     do {
         input(s, "/<>?|*:\"\\");
-        if (s.substr(s.length() <= 4 || s.length() - 4, 4) != ".txt")
+        if (s.length() <= 4 || s.substr(s.length() - 4, 4) != ".txt")
             cout << "Неверный ввод\n\a";
     } while (s.length() <= 4 || s.substr(s.length() - 4, 4) != ".txt");
     if (isFileExists(s))
@@ -354,7 +354,7 @@ void editRow(int idx, StudentData sd)
         getline(fin, s);
         fout << s << endl;
     }
-
+    sd.average_mark = (sd.marks[0] + sd.marks[1]+sd.marks[2] + sd.marks[3])/4;
     fin.ignore(INT_MAX, '\n');
     fout << sd.name << ' ';
     fout << sd.year << ' ';
@@ -577,27 +577,33 @@ string editString(string curr_s, dataType data_type, double min_val, double max_
     TO_ROW(0);
     while (true)
     {
+        bool isA;
         int c = _getch();
         if (c == 224) {
-            switch (_getch())
+
+            if(_kbhit()) // если ожидает ввода (не 'а')
             {
-            case KEY_LEFT:
-                if (curr_pos > 0)
+                switch (_getch())
                 {
-                    cout << "\033[1D"; //влево
-                    curr_pos--;
+                case KEY_LEFT:
+                    if (curr_pos > 0)
+                    {
+                        cout << "\033[1D"; //влево
+                        curr_pos--;
+                    }
+                    break;
+                case KEY_RIGHT:
+                    if (curr_pos < curr_s.length())
+                    {
+                        cout << "\033[1C"; //вправо
+                        curr_pos++;
+                    }
+                    break;
+                case KEY_DELETE:
+                    cmdDeleteRight(curr_pos, curr_s);
+                    break;
                 }
-                break;
-            case KEY_RIGHT:
-                if (curr_pos < curr_s.length())
-                {
-                    cout << "\033[1C"; //вправо
-                    curr_pos++;
-                }
-                break;
-            case KEY_DELETE: 
-                cmdDeleteRight(curr_pos, curr_s);
-                break;
+                continue;
             }
         }
         else if (c == KEY_ENTER)
@@ -626,39 +632,40 @@ string editString(string curr_s, dataType data_type, double min_val, double max_
                 TO_ROW(curr_pos + 1);
             }
         	cout << "\a"; // звук
+            continue;
         }
         else if (c == KEY_BACKSPACE)
         {
             cmdDeleteLeft(curr_pos, curr_s);
+            continue;
         }
-        else
+
+        bool is_ok = false;
+        int k;
+        if('р' < 0 ) k = c - 256; // char почему-то signed ¯\_(ツ)_/¯
+        switch (data_type)
         {
-            bool is_ok = false;
-            int k = c - 255; // char почему-то signed ¯\_(ツ)_/¯
-            switch (data_type)
+        case String:
+            if (NAME_INPUT_CHECK)
             {
-            case String:
-                if (NAME_INPUT_CHECK)
-                {
-                    is_ok = true;
-                }
-                break;
-            case Double:
-                if (DOUBLE_INPUT_CHECK)
-                {
-                    is_ok = true;
-                }
-                break;
-            case Int:
-                if (INT_INPUT_CHECK)
-                {
-                    is_ok = true;
-                }
-                break;
-			}
-            if(is_ok)
-				cmdAdd(curr_pos, curr_s, c);
-        }
+                is_ok = true;
+            }
+            break;
+        case Double:
+            if (DOUBLE_INPUT_CHECK)
+            {
+                is_ok = true;
+            }
+            break;
+        case Int:
+            if (INT_INPUT_CHECK)
+            {
+                is_ok = true;
+            }
+            break;
+		}
+        if(is_ok)
+			cmdAdd(curr_pos, curr_s, c);
     }
 }
 
@@ -791,6 +798,7 @@ int main(int argc, char* argv[])
     setlocale(LC_ALL, "Russian");
     setlocale(LC_NUMERIC, "en-US"); // устанавливаю locale для цифр и знаков, чтобы работал stod
 	SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
     hCon = GetStdHandle(STD_OUTPUT_HANDLE); //Присваивание дескриптора консоли
 
     COORD  size{ 100, 50 };

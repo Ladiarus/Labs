@@ -6,7 +6,7 @@
 #define KEY_ENTER 13
 #define KEY_DELETE 83
 #define KEY_BACKSPACE 8
-#define NAME_INPUT_CHECK (c >= 'a' && c <= 'z' || c-255 >= 'à' && c-255 <= 'ÿ' || c >= 'A' && c <= 'Z' || c-255 >= 'À' && c-255 <= 'ß' || c == ' ')
+#define NAME_INPUT_CHECK (c >= 'a' && c <= 'z' || k >= 'à' && k <= 'ÿ' || c >= 'A' && c <= 'Z' || k >= 'À' && k <= 'ß' || c == ' ')
 #define DOUBLE_INPUT_CHECK (c >= '0' && c <= '9' || c == '.')
 #define INT_INPUT_CHECK (c >= '0' && c <= '9')
 #define TO_ROW(num) (cout<<"\033["+to_string(num)+"G")
