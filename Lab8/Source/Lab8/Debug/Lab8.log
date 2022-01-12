@@ -1,13 +1,16 @@
 ﻿  Lab8.cpp
-C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(188,31): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(466,22): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(477,15): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(490,10): warning C4101: c: неиспользованная локальная переменная
-C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(501,13): warning C4018: >=: несоответствие типов со знаком и без знака
-C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(504,10): warning C4101: c: неиспользованная локальная переменная
-C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(596,34): warning C4018: <: несоответствие типов со знаком и без знака
-C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(624,53): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(624,44): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
-C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(580,14): warning C4101: isA: неиспользованная локальная переменная
-C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(677,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(194,31): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(472,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(483,15): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(496,10): warning C4101: c: неиспользованная локальная переменная
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(507,13): warning C4018: >=: несоответствие типов со знаком и без знака
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(510,10): warning C4101: c: неиспользованная локальная переменная
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(602,34): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(630,53): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(630,44): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(586,14): warning C4101: isA: неиспользованная локальная переменная
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(683,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(817,23): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(844,22): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Lab8\Lab8.cpp(855,32): warning C4018: <: несоответствие типов со знаком и без знака
   Lab8.vcxproj -> C:\Users\Yaroslav\Documents\Visual Studio 2019\Projects\Labs\Lab8\Source\Debug\Lab8.exe

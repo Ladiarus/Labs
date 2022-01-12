@@ -4,6 +4,7 @@ int amount_of_lines;
 short current_pointer_y;
 bool is_exit;
 const string INDIVIDUAL_TASK_FILE_NAME = "Individual Task.txt";
+const string TEMP_FILE_NAME = "TEMP_FILE_DO_NOT_TOUCH.txt";
 COORD curr_coord;
 CONSOLE_SCREEN_BUFFER_INFO info;
 string curr_in_file, curr_out_file;
@@ -38,6 +39,11 @@ void myQSort(vector<T>& v, int beg, int end, bool(*comp)(T*, T*))
     }
     myQSort(v, beg, curr_main_idx - 1, comp);
     myQSort(v, curr_main_idx + 1, end, comp);
+}
+
+bool intComp(int* a, int* b)
+{
+    return *a > *b;
 }
 
 void movePointer(short y)
@@ -142,8 +148,8 @@ bool isIntValid(string s, int a, int b)
 
 void viewOptions()
 {
-    cout << "Create File - 1\nChoose File - 2\nAdd - 3\nChange - 4\nSort - 5\nIndividual Task - 6\n";
-    chooseOption({createFileSelect, chooseFileSelect, addStringSelect, editRowSelect, sortSelect, individualTaskSelect});
+    cout << "Create File - 1\nChoose File - 2\nAdd - 3\nChange - 4\nDelete - 5\nSort - 6\nIndividual Task - 7\n";
+    chooseOption({createFileSelect, chooseFileSelect, addStringSelect, editRowSelect, deleteSelect, sortSelect, individualTaskSelect});
 }
 
 bool isFileExists(string s)
@@ -343,11 +349,11 @@ void editRowSelect()
 }
 void editRow(int idx, StudentData sd)
 {
-    string s, temp_name = "TEMP_FILE_DO_NOT_TOUCH.txt";
+    string s;
     fin.close();
     fin.open(curr_in_file);
-    createFile(temp_name);
-    fout.open(temp_name);
+    createFile(TEMP_FILE_NAME);
+    fout.open(TEMP_FILE_NAME);
 
     for(int i = 0; i < idx-1; i++)
     {
@@ -373,7 +379,7 @@ void editRow(int idx, StudentData sd)
     fin.close();
     fout.close();
     remove(curr_in_file.c_str());
-    rename(temp_name.c_str(), curr_in_file.c_str());
+    rename(TEMP_FILE_NAME.c_str(), curr_in_file.c_str());
 }
 
 void sortSelect()
@@ -791,6 +797,117 @@ void individualTaskSelect()
     system("pause");
     fout.close();
 
+}
+
+void deleteSelect()
+{
+    fin.close();
+    cout << "Введите через пробел номера студентов, которых хотите удалить\n";
+    string s;
+    int a = 0;
+    bool isValid;
+    cin.ignore();
+    getline(cin, s);
+    vector<int> linesRaw;
+    vector<string> v = splitStr(s, ' ');
+
+    for(string x : v)
+    {
+        isValid = true;
+	    for(int i = 0; i < x.length(); i++)
+	    {
+		    if(x[i] < '0' || x[i] > '9')
+		    {
+                cout << "Неверный ввод: " + x + " будет пропущено" << endl;
+                isValid = false;
+                break;
+		    }
+	    }
+        if(isValid)
+        {
+            a = stoi(x);
+            if(a > amount_of_lines || a < 1)
+            {
+                cout << "Неверный ввод, выход за пределы: " + x + " будет пропущено" << endl;
+            }
+            else
+            {
+                linesRaw.push_back(a);
+            }
+        }
+    }
+    if (linesRaw.empty())
+        return;
+    myQSort<int>(linesRaw, 0, linesRaw.size() - 1, intComp);
+    vector<int> lines;
+    lines.push_back(linesRaw[0]);
+    for(int i = 1; i < linesRaw.size(); i++)
+    {
+	    if(linesRaw[i] != linesRaw[i - 1])
+	    {
+            lines.push_back(linesRaw[i]);
+	    }
+    }
+    int arrIdx = 0, fileIdx = 1;
+    fin.open(curr_in_file);
+    string g, k;
+    cout << "Будут удалены:\n";
+    while(!fin.eof() && arrIdx < lines.size())
+    {
+        if (fileIdx == lines[arrIdx])
+        {
+            fin >> g;
+            fin >> k;
+            cout << g + " " + k << endl;
+            arrIdx++;
+        }
+        fin.ignore(INT_MAX, '\n');
+        fileIdx++;
+    }
+
+    bool b;
+    cout << "Вы уверены, что хотите удалить эти записи? y/n\n";
+    input(b);
+    if(b)
+		deleteRows(lines);
+
+
+}
+
+void deleteRows(vector<int>& v)
+{
+    string s;
+    v.push_back(-1); //Ограничитель
+    fin.close();
+    fin.open(curr_in_file);
+    createFile(TEMP_FILE_NAME);
+    fout.open(TEMP_FILE_NAME);
+    int fileIdx = 1;
+    int arrIdx = 0;
+    bool is_first_write = true;
+    while (!fin.eof())
+    {
+        if(fileIdx != v[arrIdx])
+        {
+            getline(fin, s);
+            if(!is_first_write) //если не первая строка
+            {
+                fout << "\n";
+            }
+        	fout << s;
+            is_first_write = false;
+        }
+        else
+        {
+            fin.ignore(INT_MAX, '\n');
+            arrIdx++;
+        }
+    	fileIdx++;
+    }
+    fin.close();
+    fout.close();
+    remove(curr_in_file.c_str());
+    rename(TEMP_FILE_NAME.c_str(), curr_in_file.c_str());
 }
 
 int main(int argc, char* argv[])

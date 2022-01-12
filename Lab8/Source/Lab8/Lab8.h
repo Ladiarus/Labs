@@ -89,3 +89,7 @@ bool isDoubleValid(string s);
 bool isIntValid(string s , int a, int b);
 
 void individualTaskSelect();
+
+void deleteSelect();
+
+void deleteRows(vector<int>& v);
